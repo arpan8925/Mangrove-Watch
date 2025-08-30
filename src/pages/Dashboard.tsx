@@ -61,10 +61,6 @@ export default function Dashboard() {
             Monitor mangrove conservation efforts in real-time
           </p>
         </div>
-        <Button className="bg-gradient-ocean hover:shadow-glow transition-smooth">
-          <Plus className="w-4 h-4 mr-2" />
-          New Report
-        </Button>
       </div>
 
       {/* Metrics Grid */}

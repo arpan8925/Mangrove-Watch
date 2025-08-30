@@ -18,6 +18,16 @@ import {
   Clock,
   Eye
 } from "lucide-react";
+import {
+  ResponsiveContainer,
+  ComposedChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  Bar
+} from "recharts";
 
 export default function Analytics() {
   const kpiData = [
@@ -162,32 +172,67 @@ export default function Analytics() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {/* Mock Chart Area */}
-              <div className="h-64 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <BarChart3 className="w-16 h-16 mx-auto mb-4 text-primary" />
-                  <h3 className="text-lg font-semibold mb-2">Interactive Chart View</h3>
-                  <p className="text-sm max-w-md">
-                    This would display interactive charts showing report trends, 
-                    verification rates, and resolution metrics over time using 
-                    libraries like Recharts or Chart.js.
-                  </p>
-                </div>
+              {/* Interactive Chart */}
+              <div className="h-64">
+                <ResponsiveContainer width="100%" height="100%">
+                  <ComposedChart data={trendData}>
+                    <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
+                    <XAxis 
+                      dataKey="month" 
+                      className="text-xs"
+                      tick={{ fontSize: 12 }}
+                    />
+                    <YAxis 
+                      className="text-xs"
+                      tick={{ fontSize: 12 }}
+                    />
+                    <Tooltip 
+                      contentStyle={{
+                        backgroundColor: 'hsl(var(--background))',
+                        border: '1px solid hsl(var(--border))',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                      }}
+                      labelStyle={{ color: 'hsl(var(--foreground))' }}
+                    />
+                    <Legend 
+                      wrapperStyle={{ fontSize: '12px' }}
+                    />
+                    <Bar 
+                      dataKey="reports" 
+                      fill="hsl(var(--primary))" 
+                      radius={[4, 4, 0, 0]}
+                      name="Total Reports"
+                    />
+                    <Bar 
+                      dataKey="verified" 
+                      fill="hsl(var(--success))" 
+                      radius={[4, 4, 0, 0]}
+                      name="Verified"
+                    />
+                    <Bar 
+                      dataKey="resolved" 
+                      fill="hsl(var(--accent))" 
+                      radius={[4, 4, 0, 0]}
+                      name="Resolved"
+                    />
+                  </ComposedChart>
+                </ResponsiveContainer>
               </div>
               
-              {/* Legend */}
-              <div className="flex items-center justify-center space-x-6">
+              {/* Enhanced Legend */}
+              <div className="flex items-center justify-center space-x-6 pt-2">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-primary rounded-full"></div>
-                  <span className="text-sm">Total Reports</span>
+                  <span className="text-sm font-medium">Total Reports</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-success rounded-full"></div>
-                  <span className="text-sm">Verified</span>
+                  <span className="text-sm font-medium">Verified</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-accent rounded-full"></div>
-                  <span className="text-sm">Resolved</span>
+                  <span className="text-sm font-medium">Resolved</span>
                 </div>
               </div>
             </div>

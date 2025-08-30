@@ -257,10 +257,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact & Support
 
-- **Project Lead**: [Your Name]
+- **Project Lead**: Dev Kadiya
 - **Email**: [your.email@example.com]
-- **GitHub Issues**: [Report bugs and feature requests](https://github.com/your-username/mangrove-watch/issues)
-- **Discord**: [Join our community](https://discord.gg/your-server)
+- **GitHub Issues**: [Report bugs and feature requests](https://github.com/arpan8925/mangrove-watch/issues)
 
 ## 🌟 Star the Project
 
